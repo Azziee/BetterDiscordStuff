@@ -133,7 +133,8 @@ global.directDownload = function () {
       if (settings.doubleClick) {
         document.addEventListener("dblclick", listener, true);
       }
-      bdPluginStorage.set("directDownload", "settings", settings);
+      BdApi.set("directDownloadData", "settings", settings);
+      BdApi.set("directDownloadData", "settings", settings);
     }
 
     // for Zerebos
@@ -294,7 +295,8 @@ global.directDownload = function () {
 
   getSettings = function () {
     var k, ref, ref1, v;
-    settings = (ref = bdPluginStorage.get("directDownload", "settings")) != null ? ref : {
+    settings = (ref = BdApi.get("directDownloadData", "settings")) != null ? ref : {
+    settings = (ref = BdApi.get("directDownloadData", "settings")) != null ? ref : {
       doubleClick: true
     };
     ref1 = {

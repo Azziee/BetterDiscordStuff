@@ -137,7 +137,8 @@ class toggleYourStuff
   settings = {}
 
   getSettings = ->
-    settings = (bdPluginStorage.get "toggleYourStuff", "settings") ? {}
+    settings = (BdApi.getData "toggleYourStuff", "settings") ? {}
+    settings = (BdApi.getData "toggleYourStuff", "settings") ? {}
     settings[k] ?= v for k, v of {
       cancelDefault: false
       dontSave: false
@@ -179,7 +180,8 @@ class toggleYourStuff
     settings.dontSave = html.querySelector("""input[name="dontSave"]""").checked
 
     settings._note = "The plugin uses the keycodes for detecting a match. The hotkeys are for display in settings only."
-    bdPluginStorage.set "toggleYourStuff", "settings", settings
+    BdApi.setData "toggleYourStuff", "settings", settings
+    BdApi.setData "toggleYourStuff", "settings", settings
 
 
 window.toggleYourStuff = toggleYourStuff

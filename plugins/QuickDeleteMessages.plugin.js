@@ -41,7 +41,8 @@ global.QuickDeleteMessages = function () {
     async start() {
       var ref;
       ({ AsyncKeystate, getOwnerInstance } = await SuperSecretSquareStuff);
-      settings.confirm = (ref = bdPluginStorage.get("QuickDeleteMessages", "confirm")) != null ? ref : false;
+      settings.confirm = (ref = BdApi.get("QuickDeleteMessagesData", "confirm")) != null ? ref : false;
+      settings.confirm = (ref = BdApi.get("QuickDeleteMessagesData", "confirm")) != null ? ref : false;
       if (UserStore == null) {
         UserStore = BdApi.findModuleByProps("getCurrentUser");
       }

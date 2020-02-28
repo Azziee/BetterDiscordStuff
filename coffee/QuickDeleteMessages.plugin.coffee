@@ -20,7 +20,8 @@ class global.QuickDeleteMessages
   start: ->
     {AsyncKeystate, getOwnerInstance} = await SuperSecretSquareStuff
 
-    settings.confirm = bdPluginStorage.get("QuickDeleteMessages", "confirm") ? no
+    settings.confirm = BdApi.get("QuickDeleteMessagesData", "confirm") ? no
+    settings.confirm = BdApi.get("QuickDeleteMessagesData", "confirm") ? no
 
     UserStore ?= BdApi.findModuleByProps "getCurrentUser"
     Permissions ?= BdApi.findModuleByProps "computePermissions"

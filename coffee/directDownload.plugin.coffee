@@ -110,7 +110,8 @@ class global.directDownload
     h[...h.lastIndexOf n].lastIndexOf n
 
   getSettings = ->
-    settings = bdPluginStorage.get("directDownload", "settings") ? doubleClick: true
+    settings = BdApi.get("directDownloadData", "settings") ? doubleClick: true
+    settings = BdApi.get("directDownloadData", "settings") ? doubleClick: true
     settings[k] ?= v for k, v of {
       dldir: path.join process.env[if process.platform is "win32" then "USERPROFILE" else "HOME"], "downloads"
       autoopen: false
@@ -239,7 +240,8 @@ class global.directDownload
         input.innerHTML = "invalid path" if name is "dldir"
     document.removeEventListener "dblclick", listener, true
     document.addEventListener "dblclick", listener, true if settings.doubleClick
-    bdPluginStorage.set "directDownload", "settings", settings
+    BdApi.setData "directDownload", "settings", settings
+    BdApi.setData "directDownload", "settings", settings
     return
 
   # for Zerebos

@@ -71,7 +71,8 @@ global.AvatarHover = function () {
         ({ name, type, value, checked } = ref[i]);
         settings[name] = "checkbox" === type ? checked : value || defaultSettings[name];
       }
-      bdPluginStorage.set("AvatarHover", "settings", settings);
+      BdApi.set("AvatarHoverData", "settings", settings);
+      BdApi.set("AvatarHoverData", "settings", settings);
       return updateQualifier();
     }
 
@@ -206,7 +207,8 @@ global.AvatarHover = function () {
     if (settings != null) {
       return;
     }
-    settings = (ref = bdPluginStorage.get("AvatarHover", "settings")) != null ? ref : {};
+    settings = (ref = BdApi.get("AvatarHoverData", "settings")) != null ? ref : {};
+    settings = (ref = BdApi.get("AvatarHoverData", "settings")) != null ? ref : {};
     results = [];
     for (k in defaultSettings) {
       v = defaultSettings[k];

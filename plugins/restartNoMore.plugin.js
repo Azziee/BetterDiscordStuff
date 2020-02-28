@@ -135,7 +135,8 @@ restartNoMore = function () {
           settings[name] = checked;
         }
       }
-      bdPluginStorage.set("restartNoMore", "settings", settings);
+      BdApi.set("restartNoMoreData", "settings", settings);
+      BdApi.set("restartNoMoreData", "settings", settings);
     }
 
   };
@@ -228,7 +229,8 @@ restartNoMore = function () {
 
   getSettings = function () {
     var k, ref, ref1, v;
-    settings = (ref = bdPluginStorage.get("restartNoMore", "settings")) != null ? ref : {};
+    settings = (ref = BdApi.get("restartNoMoreData", "settings")) != null ? ref : {};
+    settings = (ref = BdApi.get("restartNoMoreData", "settings")) != null ? ref : {};
     ref1 = {
       devMode: false
     };

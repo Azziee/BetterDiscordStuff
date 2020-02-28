@@ -120,13 +120,15 @@ class global.AvatarHover
   settings = null
   getSettings = ->
     return if settings?
-    settings = bdPluginStorage.get("AvatarHover", "settings") ? {}
+    settings = BdApi.get("AvatarHoverData", "settings") ? {}
+    settings = BdApi.get("AvatarHoverData", "settings") ? {}
     settings[k] ?= v for k, v of defaultSettings
 
   @updateSettings: ->
     for {name, type, value, checked} in document.querySelectorAll "#settings_AvatarHover input"
       settings[name] = if "checkbox" is type then checked else value or defaultSettings[name]
-    bdPluginStorage.set "AvatarHover", "settings", settings
+    BdApi.setData "AvatarHover", "settings", settings
+    BdApi.setData "AvatarHover", "settings", settings
     updateQualifier()
 
   getSettingsPanel: ->
